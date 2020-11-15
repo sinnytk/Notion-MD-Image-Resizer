@@ -8,6 +8,8 @@ assert (len(sys.argv) > 1),"File destination missing"
 
 md_file = sys.argv[1]
 
-f = open(md_file,mode='r+')
+f = open(md_file,mode='r')
 new_text = re.sub(OLD_IMG_TAG,r'<img src="\1" width="500"/>',f.read())
+
+f = open(md_file,mode='w')
 f.write(new_text)
